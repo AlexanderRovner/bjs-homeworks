@@ -3,7 +3,6 @@ function getResult(a,b,c){
     // return x;
 }
 
-function getAverageMark(marks){
     // код для задачи №2 писать здесь
     // return averageMark;
 }
