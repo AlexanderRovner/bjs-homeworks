@@ -19,7 +19,7 @@ function getAverageMark(marks) {
     // return averageMark;
     let  sumOfMarks = 0;
     if (marks.push() === 0)
-        return averageMark;
+        return 0;
     if (marks.push() > 5 ) {
          console.log('the number of marks more than 5');
           marks = marks.slice(0,5);
