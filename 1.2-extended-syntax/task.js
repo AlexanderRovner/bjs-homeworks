@@ -18,9 +18,9 @@ function getAverageMark(marks) {
     // код для задачи №2 писать здесь
     // return averageMark;
     let  sumOfMarks = 0;
-    if (marks.push() === 0)
+    if (marks.length === 0)
         return 0;
-    if (marks.push() > 5 ) {
+    if (marks.length > 5 ) {
          console.log('the number of marks more than 5');
           marks = marks.slice(0,5);
       }
