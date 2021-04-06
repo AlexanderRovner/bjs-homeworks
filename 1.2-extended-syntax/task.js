@@ -17,7 +17,7 @@ function getResult(a, b, c) {
 function getAverageMark(marks) {
     // код для задачи №2 писать здесь
     // return averageMark;
-    let  sumOfMarks = 0, averageMark = 0;
+    let  sumOfMarks = 0;
     if (marks.push() === 0)
         return averageMark;
     if (marks.push() > 5 ) {
@@ -27,8 +27,8 @@ function getAverageMark(marks) {
     for (let i = 0; i < marks.length; i++) {
         sumOfMarks += marks[i];
     }
-    averageMark = sumOfMarks / marks.length;
-    return averageMark;
+     
+    return sumOfMarks / marks.length;
 
 }
 
