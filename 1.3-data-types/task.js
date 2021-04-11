@@ -9,10 +9,12 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
             if(Number(amount)) {
                 amount = Number(amount);
                 if(Number(date)) {
-                    date = Number(date);
-                    let BLOAN = 0, totalAmount = 0;
+                    let BLOAN = 0, totalAmount = 0, dateToday = new Date(), months;
                     BLOAN = amount - contribution;
-                    totalAmount = BLOAN*((percent/12)+(percent/12)/((Math.pow((1+(percent/12)),date)) - 1))*date;  
+                    months = (date.getFullYear - dateToday.getFullYear)*12;
+                    months -= dateToday.getMonth();
+                    months += date.getMonth();
+                    totalAmount = BLOAN*((percent/12)+(percent/12)/((Math.pow((1+(percent/12)),date)) - 1))*months;  
                     console.log(Number(totalAmount.toFixed(2)));
                     return Number(totalAmount.toFixed(2));        
                 }
