@@ -2,39 +2,32 @@
 function calculateTotalMortgage(percent, contribution, amount, date) {
     // код для задачи №1 писать здесь
     // return totalAmount;
-    if(Number(percent)) {
-        percent = Number(percent/100);
-        if(Number(contribution)|| contribution == 0) {
-            contribution = Number(contribution);
-            if(Number(amount)) {
-                amount = Number(amount);
-                if(Number(date)) {
-                    let BLOAN = 0, totalAmount = 0, dateToday = new Date(), months;
-                    BLOAN = amount - contribution;
-                    months = (date.getFullYear - dateToday.getFullYear)*12;
-                    months -= dateToday.getMonth();
-                    months += date.getMonth();
-                    totalAmount = BLOAN*((percent/12)+(percent/12)/((Math.pow((1+(percent/12)),date)) - 1))*months;  
-                    console.log(Number(totalAmount.toFixed(2)));
-                    return Number(totalAmount.toFixed(2));        
-                }
-                else
-                console.log(`Параметр дата окончания кредита содержит
-                 неправильное значение ${date}`);
-            }
-            else
-            console.log(`Параметр сумму кредита содержит
-             неправильное значение ${amount}`);
-        }
-        else
-        console.log(`Параметр сумма первоначального взноса содержит
-         неправильное значение ${contribution}`);
-    }
-    else
-    console.log(`Параметр процентная ставка содержит
+    // console.log(percent, contribution, amount, date);
+    // console.log(typeof(percent),typeof(contribution),typeof(amount),typeof date);
+    // console.log(date.getTime());
+    if(percent === undefined || percent <= 0 ) {
+       return console.log(`Параметр процентная ставка содержит
      неправильное значение ${percent}`);
-
-
+    }
+     else if(contribution === undefined || contribution < 0 ) {
+        return console.log(`Параметр процентная ставка содержит
+        неправильное значение ${contribution}`);
+       } 
+         else if(amount === undefined || amount <= 0 ) {
+            return console.log(`Параметр сумму кредита содержит
+            неправильное значение ${amount}`);
+         }
+            else if(date === undefined || date <= 0) {
+                return console.log(`Параметр дата окончания кредита содержит
+                неправильное значение ${date}`);
+            }
+                    let BLOAN = 0, totalAmount = 0, dateToday = new Date(), months = 0;
+                    BLOAN = amount - contribution;
+                    months = (date.getTime - dateToday.getTime)/(60*60*24*7*4);
+                    percent = percent/100;
+                    totalAmount = BLOAN*((percent/12)+(percent/12)/((Math.pow((1+(percent/12)),months)) - 1))*months;  
+                    console.log(Number(totalAmount.toFixed(2)));
+                    return Number(totalAmount.toFixed(2)); 
 }
 
 function getGreeting(name) {
