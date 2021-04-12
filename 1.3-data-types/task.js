@@ -23,7 +23,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
             }
                     let BLOAN = 0, totalAmount = 0, dateToday = new Date(), months = 0;
                     BLOAN = amount - contribution;
-                    months = (date.getTime() - dateToday.getTime())/(60*60*24*7*4*1000);
+                    months = Math.floor(((date.getTime() - dateToday.getTime())/(1000*60*60*24*365))*12);
                     percent = percent/100;
                     totalAmount = BLOAN*((percent/12)+(percent/12)/((Math.pow((1+(percent/12)),months)) - 1))*months;  
                     console.log(Number(totalAmount.toFixed(2)));
