@@ -58,7 +58,7 @@ function getAverageScore(data) {
     }
     
     data.average = average/i; 
-        return {data}; 
+        return data;
        
     }
 
