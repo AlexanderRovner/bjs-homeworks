@@ -12,6 +12,18 @@ function getSolutions(a, b, c) {
     result.roots.push ((-b - Math.sqrt(result.D)) / 2 * a);
     return result;
 }
+function showSolutionsMessage (a, b, c) {
+     let result = {};
+     result = Object.assign({},getSolutions(a, b,c));
+     console.log(`Вычисляем корни квадратного уравнения ${a}x² + ${b}x + ${c}`);
+     console.log(`Значение дискриминанта: ${result.D}`)
+     if(result.D < 0)
+     return console.log(`Уравнение не имеет вещественных корней`);
+     else if(result.D === 0)
+     return console.log(`Уравнение имеет один корень ${result.roots[0]}`);
+     else
+      return console.log(`Уравнение имеет два корня. X₁ = ${result.roots[0]}, X₂ = ${result.roots[1]}`);
+}
 
 function getAverageMark(marks) {
     // код для задачи №2 писать здесь
@@ -44,7 +56,7 @@ function getAverageScore(data) {
         i++;   
     }
     data.resultAverage = average/i; 
-        return (console.log(data)); 
+        return console.log(data); 
        
     }
-    
+
