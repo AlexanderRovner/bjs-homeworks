@@ -44,6 +44,7 @@ function isEmpty(obj) {
     }
     return true;
 }
+
 function getAverageScore(data) {
     let i = 0, average = 0;
     if(isEmpty(data)){
@@ -55,8 +56,9 @@ function getAverageScore(data) {
         average += data[prop]; 
         i++;   
     }
-    data.resultAverage = average/i; 
-        return console.log(data); 
+    
+    data.average = average/i; 
+        return {data}; 
        
     }
 
