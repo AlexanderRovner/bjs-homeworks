@@ -77,6 +77,6 @@ function getPersonData(secretData) {
         }
 
     }
-        return result;
-    
+    return result;
+
 }
