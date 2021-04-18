@@ -3,14 +3,14 @@
 function getAverageMark(marks) {
     // код для задачи №2 писать здесь
     // return averageMark
-    if(marks == '')
-    return 0;
+    if (marks == '')
+        return 0;
     let average = 0, roundedAverage = 0;
-    for(let i = 0; i < marks.length; i++) {
-        if( marks[i] === 0 ) return 0;
-        average += marks[i]; 
+    for (let i = 0; i < marks.length; i++) {
+        if (marks[i] === 0) return 0;
+        average += marks[i];
     }
-    average = average/marks.length;
+    average = average / marks.length;
     roundedAverage = Math.round(average);
     return roundedAverage;
 }
