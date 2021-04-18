@@ -3,6 +3,13 @@
 function getAverageMark(marks) {
     // код для задачи №2 писать здесь
     // return averageMark
+    let average = 0, roundedAverage = 0;
+    for(let i = 0; i < marks.length; i++) {
+        average += marks[i]; 
+    }
+    average = average/marks.length;
+    roundedAverage = Math.round(average);
+    return roundedAverage;
 }
 
 function checkBirthday(birthday) {
