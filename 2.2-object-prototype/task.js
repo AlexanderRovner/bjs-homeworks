@@ -22,10 +22,10 @@ function checkBirthday(birthday) {
     let now = date.getTime();
     birthday = new Date(birthday).getTime();
     let diff = now - birthday;
-    let age = diff/(1000*60*60*24*365 + (diff/(1000*60*60*24*365))/4);
-    if(age >= 18)
-    return true;
-    else
+    let age = diff / (1000 * 60 * 60 * 24 * 365 + (diff / (1000 * 60 * 60 * 24 * 365)) / 4);
+    if (age >= 18)
+        return true;
+
     return false;
 
 }
