@@ -8,14 +8,14 @@ class PrintEditionItem {
         this.type = type = null;
     }
     fix() {
-      this.state = this.state*1.5;  
+        this.state = this.state * 1.5;
     }
-  
+
     set state(number) {
-        if(number < 0)
-        this._state = 0;
-        if(number >= 100)
-        this._state = 100;
+        if (number < 0)
+            this._state = 0;
+        if (number >= 100)
+            this._state = 100;
     }
     get state() {
         return this._state;
@@ -39,7 +39,7 @@ class Book extends PrintEditionItem {
         this.pagesCount = pagesCount;
         this.state = 100;
         this.type = 'book';
-        this.author = author; 
+        this.author = author;
     }
 }
 class NovelBook extends Book {
@@ -50,7 +50,7 @@ class NovelBook extends Book {
         this.pagesCount = pagesCount;
         this.state = 100;
         this.type = 'novel';
-        this.author = author; 
+        this.author = author;
     }
 }
 class FantasticBook extends Book {
@@ -61,7 +61,7 @@ class FantasticBook extends Book {
         this.pagesCount = pagesCount;
         this.state = 100;
         this.type = 'fantastic';
-        this.author = author; 
+        this.author = author;
     }
 }
 class DetectiveBook extends Book {
@@ -72,7 +72,7 @@ class DetectiveBook extends Book {
         this.pagesCount = pagesCount;
         this.state = 100;
         this.type = 'detective';
-        this.author = author; 
+        this.author = author;
     }
 }
 
@@ -83,20 +83,20 @@ class Library {
         this.books = [];
     }
     addBook(book) {
-        if(book.state > 30) 
-            this.books.push(book);  
+        if (book.state > 30)
+            this.books.push(book);
     }
     findBookBy(type, value) {
-        for(let i = 0; i < this.books.length; i++) {
-                if(this.books[i][type] === value)
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i][type] === value)
                 return this.books[i];
         }
         return null;
     }
     giveBookByName(bookName) {
-        for(let i = 0; i < this.books.length; i++) {
-            if(this.books[i]['name'] === bookName){
-            this.books.splice(i,1);
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i]['name'] === bookName) {
+                this.books.splice(i, 1);
                 return bookName;
             }
         }
