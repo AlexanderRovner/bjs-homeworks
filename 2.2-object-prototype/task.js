@@ -18,6 +18,16 @@ function getAverageMark(marks) {
 function checkBirthday(birthday) {
     // код для задачи №3 писать здесь
     // return verdict
+    let date = new Date();
+    let now = date.getTime();
+    birthday = new Date(birthday).getTime();
+    let diff = now - birthday;
+    let age = diff/(1000*60*60*24*365 + (diff/(1000*60*60*24*365))/4);
+    if(age >= 18)
+    return true;
+    else
+    return false;
+
 }
 
 
