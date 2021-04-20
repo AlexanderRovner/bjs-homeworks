@@ -104,25 +104,28 @@ class Library {
     }
 }
 class StudentLog {
-    constructor(studentName, subject) {
+    constructor(studentName) {
         this.studentName = studentName;
-        this.subject = [];
     }
     getName() {
         return this.studentName;
     }
     addGrade(grade, subject) {
-        if(isNaN(grade) || grade > 5 || grade < 0)
-        return console.log(`Вы пытались поставить оценку ${grade} по предмету "${subject}. Допускаются только числа от 1 до 5.`);
-        [this.subject].push(grade);
+        if (isNaN(grade) || grade > 5 || grade < 1)
+            return console.log(`Вы пытались поставить оценку ${grade} по предмету "${subject}. Допускаются только числа от 1 до 5.`);
+        if (log.hasOwnProperty(subject))
+            this.subject.push(grade);
+        else
+            this.subject = [];
+        this.subject.push(grade);
         return this.subject.length;
     }
     getAverageBySubject(subject) {
         let everageGrade = 0;
-        for( let i = 0; i < this.subject.length; i++) {
-            everageGrade += this.studentName[subject][i];
-        } 
-        return everageGrade/this.subject.length;
+        for (let i = 0; i < this.subject.length; i++) {
+            everageGrade += this.subject[i];
+        }
+        return everageGrade / this.subject.length;
     }
 }
 // const library = new Library("Библиотека имени Ленина");
