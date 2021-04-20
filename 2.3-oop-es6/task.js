@@ -103,12 +103,37 @@ class Library {
         return null;
     }
 }
+class StudentLog {
+    constructor(studentName, subject) {
+        this.studentName = studentName;
+        this.subject = [];
+    }
+    getName() {
+        return this.studentName;
+    }
+    addGrade(grade, subject) {
+        if(isNaN(grade) || grade > 5 || grade < 0)
+        return console.log(`Вы пытались поставить оценку ${grade} по предмету "${subject}. Допускаются только числа от 1 до 5.`);
+        [this.subject].push(grade);
+        return this.subject.length;
+    }
+    getAverageBySubject(subject) {
+        let everageGrade = 0;
+        for( let i = 0; i < this.subject.length; i++) {
+            everageGrade += this.studentName[subject][i];
+        } 
+        return everageGrade/this.subject.length;
+    }
+}
+// const library = new Library("Библиотека имени Ленина");
+// library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
+// library.addBook(new PrintEditionItem('Типовой школьный журнал', 2019, 102));
+// library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
+// library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
+const log = new StudentLog('Олег Никифоров');
 
-
-const library = new Library("Библиотека имени Ленина");
-library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
-library.addBook(new PrintEditionItem('Типовой школьный журнал', 2019, 102));
-library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
-library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
-
+log.addGrade(2, 'algebra');
+log.addGrade(4, 'algebra');
+log.addGrade(5, 'geometry');
+log.addGrade(4, 'geometry');
 
