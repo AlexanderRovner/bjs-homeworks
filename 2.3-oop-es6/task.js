@@ -107,6 +107,7 @@ class Library {
 class StudentLog {
     constructor(studentName) {
         this.studentName = studentName;
+        this.subject = [];
     }
     getName() {
         return this.studentName;
@@ -114,19 +115,21 @@ class StudentLog {
     addGrade(grade, subject) {
         if (isNaN(grade) || grade > 5 || grade < 1)
             return console.log(`Вы пытались поставить оценку ${grade} по предмету "${subject}. Допускаются только числа от 1 до 5.`);
-        if (log.hasOwnProperty(subject))
-            this.subject.push(grade);
-        else
-            this.subject = [];
-        this.subject.push(grade);
-        return this.subject.length;
+        if (StudentLog.hasOwnProperty(subject))
+            StudentLog[subject].push(grade);
+        else {
+            StudentLog[subject] = [];
+
+            StudentLog[subject].push(grade);
+        }
+        return StudentLog[subject].length;
     }
     getAverageBySubject(subject) {
         let everageGrade = 0;
-        for (let i = 0; i < this.subject.length; i++) {
-            everageGrade += this.subject[i];
+        for (let i = 0; i < StudentLog[subject].length; i++) {
+            everageGrade += StudentLog[subject][i];
         }
-        return everageGrade / this.subject.length;
+        return everageGrade / StudentLog[subject].length;
     }
 }
 // const library = new Library("Библиотека имени Ленина");
