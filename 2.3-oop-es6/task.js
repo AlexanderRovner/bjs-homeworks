@@ -16,7 +16,7 @@ class PrintEditionItem {
             this._state = 0;
         if (number >= 100)
             this._state = 100;
-        else    
+        else
             this._state = number;
     }
     get state() {
@@ -139,10 +139,10 @@ class StudentLog {
         let i = 0, studentFlag = 0, totalAverage = 0;
         for (let key in this) {
             if (key === 'studentName')
-            studentFlag++;
+                studentFlag++;
             if (key !== 'studentName' && key !== 'subject') {
-                if(studentFlag > 1)
-                return totalAverage / i;
+                if (studentFlag > 1)
+                    return totalAverage / i;
                 totalAverage += this.getAverageBySubject(key);
                 i++;
             }
