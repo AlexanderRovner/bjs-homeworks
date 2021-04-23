@@ -125,11 +125,21 @@ class StudentLog {
         return StudentLog[subject].length;
     }
     getAverageBySubject(subject) {
+        if (!StudentLog.hasOwnProperty(subject))
+        return 0;
         let everageGrade = 0;
         for (let i = 0; i < StudentLog[subject].length; i++) {
             everageGrade += StudentLog[subject][i];
         }
         return everageGrade / StudentLog[subject].length;
+    }
+    getTotalAverage() {
+        let i = 0, totalAverage = 0;
+        for(let key in log) {
+        totalAverage += log.getAverageBySubject(key);
+        i++; 
+        }
+        return totalAverage/i; 
     }
 }
 // const library = new Library("Библиотека имени Ленина");
