@@ -16,6 +16,8 @@ class PrintEditionItem {
             this._state = 0;
         if (number >= 100)
             this._state = 100;
+        else    
+            this._state = number;
     }
     get state() {
         return this._state;
@@ -134,10 +136,14 @@ class StudentLog {
         return everageGrade / this[subject].length;
     }
     getTotalAverage() {
-        let i = 0, totalAverage = 0;
+        let i = 0, studentFlag = 0, totalAverage = 0;
         for (let key in this) {
+            if (key === 'studentName')
+            studentFlag++;
             if (key !== 'studentName' && key !== 'subject') {
-                totalAverage += studentLog.getAverageBySubject(key);
+                if(studentFlag > 1)
+                return totalAverage / i;
+                totalAverage += this.getAverageBySubject(key);
                 i++;
             }
         }
@@ -149,10 +155,15 @@ class StudentLog {
 // library.addBook(new PrintEditionItem('Типовой школьный журнал', 2019, 102));
 // library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
 // library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
-const studentLog = new StudentLog('Олег Никифоров');
+const studentLog1 = new StudentLog('Олег Никифоров');
+const studentLog2 = new StudentLog('Ол Ник');
+studentLog1.addGrade(3, "algebra");
+studentLog1.addGrade(5, "algebra");
+studentLog1.addGrade(5, "history");
+studentLog1.addGrade(5, "history");
 
-studentLog.addGrade(3, "algebra");
-studentLog.addGrade(5, "algebra");
-studentLog.addGrade(5, "history");
-studentLog.addGrade(5, "history");
+studentLog2.addGrade(2, "algebra");
+studentLog2.addGrade(4, "algebra");
+studentLog2.addGrade(5, "geometry");
+studentLog2.addGrade(4, "geometry");
 
