@@ -115,29 +115,31 @@ class StudentLog {
     addGrade(grade, subject) {
         if (isNaN(grade) || grade > 5 || grade < 1)
             return console.log(`Вы пытались поставить оценку ${grade} по предмету "${subject}. Допускаются только числа от 1 до 5.`);
-        if (StudentLog.hasOwnProperty(subject))
-            StudentLog[subject].push(grade);
+        if (this.hasOwnProperty(subject))
+            this[subject].push(grade);
         else {
-            StudentLog[subject] = [];
+            this[subject] = [];
 
-            StudentLog[subject].push(grade);
+            this[subject].push(grade);
         }
-        return StudentLog[subject].length;
+        return this[subject].length;
     }
     getAverageBySubject(subject) {
-        if (!StudentLog.hasOwnProperty(subject))
+        if (!this.hasOwnProperty(subject))
             return 0;
         let everageGrade = 0;
-        for (let i = 0; i < StudentLog[subject].length; i++) {
-            everageGrade += StudentLog[subject][i];
+        for (let i = 0; i < this[subject].length; i++) {
+            everageGrade += this[subject][i];
         }
-        return everageGrade / StudentLog[subject].length;
+        return everageGrade / this[subject].length;
     }
     getTotalAverage() {
         let i = 0, totalAverage = 0;
-        for (let key in StudentLog) {
-            totalAverage += log.getAverageBySubject(key);
+        for (let key in this) {
+            if(key !== 'studentName' && key !== 'subject' ) {
+            totalAverage += studentLog.getAverageBySubject(key);
             i++;
+            }
         }
         return totalAverage / i;
     }
@@ -147,10 +149,10 @@ class StudentLog {
 // library.addBook(new PrintEditionItem('Типовой школьный журнал', 2019, 102));
 // library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
 // library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
-const log = new StudentLog('Олег Никифоров');
+const studentLog = new StudentLog('Олег Никифоров');
 
-log.addGrade(2, 'algebra');
-log.addGrade(4, 'algebra');
-log.addGrade(5, 'geometry');
-log.addGrade(4, 'geometry');
+studentLog.addGrade(3, "algebra");
+studentLog.addGrade(5, "algebra");
+studentLog.addGrade(5, "history");
+studentLog.addGrade(5, "history");
 
