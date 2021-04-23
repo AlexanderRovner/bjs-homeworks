@@ -136,9 +136,9 @@ class StudentLog {
     getTotalAverage() {
         let i = 0, totalAverage = 0;
         for (let key in this) {
-            if(key !== 'studentName' && key !== 'subject' ) {
-            totalAverage += studentLog.getAverageBySubject(key);
-            i++;
+            if (key !== 'studentName' && key !== 'subject') {
+                totalAverage += studentLog.getAverageBySubject(key);
+                i++;
             }
         }
         return totalAverage / i;
