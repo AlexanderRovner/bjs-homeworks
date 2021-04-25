@@ -25,7 +25,7 @@ class Triangle {
         this.c = c;
     }
     getPerimeter() {
-        return (this.a + this.b + this.c);
+        return this.a + this.b + this.c;
     }
     getArea() {
         return Math.sqrt(0.5 * getPerimeter(this.a, this.b, this.c) * (0.5 * getPerimeter(this.a, this.b, this.c) - this.a) * (0.5 * getPerimeter(this.a, this.b, this.c) - this.b) * (0.5 * getPerimeter(this.a, this.b, this.c) - this.c)).toFixed(3);
@@ -33,7 +33,6 @@ class Triangle {
 }
 
 function getTriangle(a, b, c) {
- 
     try {
         return new Triangle(a, b, c);
     }
