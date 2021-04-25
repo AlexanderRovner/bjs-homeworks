@@ -37,7 +37,6 @@ function getTriangle(a, b, c) {
         return new Triangle(a, b, c);
     }
     catch (e) {
-        const getTriangleObj = new getTriangle();
         return getTriangleObj;
     }
 }
@@ -47,5 +46,5 @@ const getTriangleObj = {
     },
     getArea() {
         return "Ошибка! Треугольник не существует";
-    }    
+    }
 }
