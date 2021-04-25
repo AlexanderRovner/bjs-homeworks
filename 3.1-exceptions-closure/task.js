@@ -16,3 +16,30 @@ function validateCount(value) {
         return e;
    }
 }
+
+class Triangle {
+    constructor(a, b, c) {
+        if ( (a + b < c) || (a + c < b) || (c + b < a) ) 
+        throw new Error (`Треугольник с такими сторонами не существует`);
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+    getPerimeter (a, b, c) {
+        this.Perimeter = (a + b + c).toFixed(3);
+        return this.Perimeter;
+    }
+    getArea (a, b, c) {
+        this.Area = (Math.sqrt(0.5*getPerimeter(a, b, c)*(0.5*getPerimeter(a, b, c) - a)*(0.5*getPerimeter(a, b, c) - b)*(0.5*getPerimeter(a, b, c) - c))).toFixed(3);
+        return this.Area;
+    }
+}
+
+function getTriangle (a, b, c) {
+    try {
+        return new Triangle;
+    }
+    catch (e) {
+        return new Triangle("Ошибка! Треугольник не существует")
+    }
+}
