@@ -28,7 +28,7 @@ class Triangle {
         return this.a + this.b + this.c;
     }
     getArea() {
-        return Math.sqrt(0.5 * getPerimeter(this.a, this.b, this.c) * (0.5 * getPerimeter(this.a, this.b, this.c) - this.a) * (0.5 * getPerimeter(this.a, this.b, this.c) - this.b) * (0.5 * getPerimeter(this.a, this.b, this.c) - this.c)).toFixed(3);
+        return parseFloat(Math.sqrt(0.5 * this.getPerimeter() * (0.5 * this.getPerimeter() - this.a) * (0.5 * this.getPerimeter() - this.b) * (0.5 * this.getPerimeter() - this.c)).toFixed(3));
     }
 }
 
