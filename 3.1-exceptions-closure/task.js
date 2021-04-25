@@ -26,22 +26,22 @@ class Triangle {
         this.c = c;
     }
     getPerimeter(a, b, c) {
-        try {
+//        try {
             this.Perimeter = (a + b + c).toFixed(3);
             return this.Perimeter;
-        }
-        catch {
-            return `Ошибка! Треугольник не существует`;
-        }
-     }
+    //     }
+    //     catch {
+    //         return `Ошибка! Треугольник не существует`;
+    //     }
+      }
     getArea(a, b, c) {
-        try {
+//        try {
             this.Area = (Math.sqrt(0.5 * getPerimeter(a, b, c) * (0.5 * getPerimeter(a, b, c) - a) * (0.5 * getPerimeter(a, b, c) - b) * (0.5 * getPerimeter(a, b, c) - c))).toFixed(3);
             return this.Area;
-        }
-        catch {
-            return `Ошибка! Треугольник не существует`;
-        }
+        // }
+        // catch {
+        //     return `Ошибка! Треугольник не существует`;
+        // }
     }
 }
 
@@ -51,7 +51,6 @@ function getTriangle(a, b, c) {
         return new Triangle(a, b, c);
     }
     catch (e) {
-        const triangle = new getTriangle(a, b, c);
         return e;
     }
 }
