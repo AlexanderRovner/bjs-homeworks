@@ -9,27 +9,27 @@ class Weapon {
 		this.range = range;
 	};
 
-	takeDamage(damage) {
-		this.durability-=damage;
+	// takeDamage(damage) {
+	// 	this.durability-=damage;
 
-		if(this.durability <= 0){
-			this.durability = 0;
-		}
-	};
+	// 	if(this.durability <= 0){
+	// 		this.durability = 0;
+	// 	}
+	// };
 
-	getDamage() {
-		if(this.durability <= (this.initDurability/this.durability) * 30) {
-			return this.attack / 2;
-		} else if(this.durability <= 0) {
-			return 0;
-		} else {
-			return this.attack;
-		}
-	};
+	// getDamage() {
+	// 	if(this.durability <= (this.initDurability/this.durability) * 30) {
+	// 		return this.attack / 2;
+	// 	} else if(this.durability <= 0) {
+	// 		return 0;
+	// 	} else {
+	// 		return this.attack;
+	// 	}
+	// };
 
-	isBroken() {
-		return !(this.durability > 0);
-	};
+	// isBroken() {
+	// 	return !(this.durability > 0);
+	// };
 }
 
 
@@ -38,12 +38,6 @@ class Weapon {
 class Bow extends Weapon {
 	constructor() {
 		super('Лук', 10, 200, 3);
-	}
-}
-
-class Sword extends Weapon {
-	constructor() {
-		super('Меч', 25, 500, 1);
 	}
 }
 
