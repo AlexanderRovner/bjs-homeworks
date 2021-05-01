@@ -88,5 +88,7 @@ class StormStaff extends Staff {
 const weapons = [new Knife(), new Staff(), new Axe(),
      new StormStaff(), new LongBow(), new Bow()];
 function getNames() {
-    weapons.forEach(item => {item.forEach(key => {if(key === "name") return key.name;})});
+    let result =[];
+    
+   return weapons.every(item => item.name);
 }
