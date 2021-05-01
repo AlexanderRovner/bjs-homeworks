@@ -1,6 +1,6 @@
-`use strict`
+//`use strict`
 // Класс оружия
-class Weapon {
+class Weapons {
 	constructor(name = 'weapon', attack = 3, durability = 3, range = 1) {
 		this.name = name;
 		this.attack = attack;
@@ -9,45 +9,51 @@ class Weapon {
 		this.range = range;
 	};
 
-	// takeDamage(damage) {
-	// 	this.durability-=damage;
+	takeDamage(damage) {
+		this.durability-=damage;
 
-	// 	if(this.durability <= 0){
-	// 		this.durability = 0;
-	// 	}
-	// };
+		if(this.durability <= 0){
+			this.durability = 0;
+		}
+	};
 
-	// getDamage() {
-	// 	if(this.durability <= (this.initDurability/this.durability) * 30) {
-	// 		return this.attack / 2;
-	// 	} else if(this.durability <= 0) {
-	// 		return 0;
-	// 	} else {
-	// 		return this.attack;
-	// 	}
-	// };
+	getDamage() {
+		if(this.durability <= (this.initDurability/this.durability) * 30) {
+			return this.attack / 2;
+		} else if(this.durability <= 0) {
+			return 0;
+		} else {
+			return this.attack;
+		}
+	};
 
-	// isBroken() {
-	// 	return !(this.durability > 0);
-	// };
+	isBroken() {
+		return !(this.durability > 0);
+	};
 }
 
 
 // Классы основных оружий
 
-class Bow extends Weapon {
+class Bow extends Weapons {
 	constructor() {
 		super('Лук', 10, 200, 3);
 	}
 }
 
-class Knife extends Weapon {
+class Sword extends Weapons {
+	constructor() {
+		super('Меч', 25, 500, 1);
+	}
+}
+
+class Knife extends Weapons {
 	constructor() {
 		super('Нож', 5, 300, 1);
 	}
 }
 
-class Staff extends Weapon {
+class Staff extends Weapons {
 	constructor() {
 		super('Посох', 8, 300, 2);
 	}
@@ -90,5 +96,6 @@ const weapons = [new Knife(), new Staff(), new Axe(),
 function getNames() {
     let result =[];
     
-   return weapons.every(item => item.name);
+   weapons.forEach(item => {result.push(item.name)})
+   return result;
 }
